@@ -1,2 +1,2 @@
 # docker-pelican
-Lightweight but fully-fledged pelican docker
+Lightweight but fully-fledged pelican docker image
