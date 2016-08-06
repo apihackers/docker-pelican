@@ -7,7 +7,7 @@ ENV GIFSICLE_VERSION 1.88
 ENV PNGQUANT_VERSION 2.5.2
 
 # Install common dependencies
-RUN apk --update --no-cache add libpng bash curl yaml gettext
+RUN apk --update --no-cache add libpng bash curl yaml gettext cairo libffi libxml2 libxslt
 
 # # Install build dependencies as virtual, build MozJpeg and remove them
 RUN apk --update --no-cache add --virtual build-dependencies \
@@ -43,7 +43,9 @@ RUN apk --update --no-cache add --virtual build-dependencies \
 ENV PELICAN_VERSION=3.6.3
 
 # Install commonly used requirements
-RUN apk --no-cache add --virtual build-dependencies python3-dev yaml-dev build-base \
-    && pip3 install -U pip pelican==$PELICAN_VERSION Markdown pyyaml pygments feedparser feedgenerator typogrify awesome-slugify \
+RUN apk --no-cache add --virtual build-dependencies \
+        python3-dev yaml-dev build-base cairo-dev libffi-dev libxml2-dev libxslt-dev\
+    && pip3 install -U pip pelican==$PELICAN_VERSION Markdown pyyaml pygments feedparser \
+        feedgenerator typogrify awesome-slugify invoke babel weasyprint \
     && apk del build-dependencies \
     && rm -r /root/.cache
