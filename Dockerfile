@@ -49,3 +49,9 @@ RUN apk --no-cache add --virtual build-dependencies \
         feedgenerator typogrify awesome-slugify invoke babel weasyprint \
     && apk del build-dependencies \
     && rm -r /root/.cache
+
+# Get and install Pelican Plugins
+Run curl -L https://github.com/getpelican/pelican-plugins/archive/master.tar.gz|tar xz \
+    && mv pelican-plugins-master/* /usr/lib/python3.5/site-packages/ \
+    && rm -fr pelican-plugins-master
+
