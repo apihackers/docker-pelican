@@ -1,0 +1,12 @@
+awesome-slugify==1.6.5
+babel==2.5.1
+feedgenerator==1.9
+feedparser==5.2.1
+invoke==0.22.0
+Markdown==2.6.11
+pdfkit==0.6.1
+pelican==3.7.1
+pygments==1.6
+pyyaml==3.12
+typogrify==2.0.7
+weasyprint==0.42
