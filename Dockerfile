@@ -17,7 +17,6 @@ RUN echo -e '@edge http://dl-cdn.alpinelinux.org/alpine/edge/main' >> /etc/apk/r
 # Install common dependencies
 RUN apk --update --no-cache add \
     bash \
-    cairo \
     curl \
     gettext \
     gifsicle \
@@ -27,13 +26,11 @@ RUN apk --update --no-cache add \
     libpng \
     libxml2 \
     libxslt \
-    opencv@testing \
     pngquant \
     python3 \
-    wkhtmltopdf@testing \
     yaml \
     zlib \
-    && python3 -m ensurepip \
+    && python3 -m ensurepip --upgrade \
     && rm -r /usr/lib/python*/ensurepip
 
 # Version change should trigger a rebuild
@@ -58,8 +55,7 @@ COPY requirements.pip /tmp/requirements.pip
 
 # Install commonly used requirements
 RUN apk --no-cache add --virtual build-dependencies \
-        python3-dev yaml-dev build-base cairo-dev libffi-dev libxml2-dev libxslt-dev\
-    && pip3 install --upgrade pip setuptools \
+        python3-dev yaml-dev build-base libffi-dev libxml2-dev libxslt-dev\
     && pip3 install -r /tmp/requirements.pip \
     && apk del build-dependencies \
     && rm -r /root/.cache
