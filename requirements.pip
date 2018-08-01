@@ -2,7 +2,7 @@ awesome-slugify==1.6.5
 babel==2.5.3
 feedgenerator==1.9
 feedparser==5.2.1
-invoke==0.23.0
+invoke==1.1.1
 Markdown==2.6.11
 pdfkit==0.6.1
 pelican==3.7.1
