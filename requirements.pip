@@ -9,4 +9,4 @@ pelican==3.7.1
 pygments==2.2.0
 pyyaml==3.12
 typogrify==2.0.7
-weasyprint==0.42
+weasyprint==43
