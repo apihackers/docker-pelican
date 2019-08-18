@@ -42,12 +42,13 @@ RUN apk --update --no-cache add --virtual build-dependencies \
     autoconf automake build-base libtool nasm tar \
     # Install MozJPEG from sources
     && curl -L -O https://github.com/mozilla/mozjpeg/archive/v$MOZJPEG_VERSION.tar.gz \
-    && tar zxf mozjpeg-$MOZJPEG_VERSION.tar.gz \
+    && tar zxf v$MOZJPEG_VERSION.tar.gz \
     && cd mozjpeg-$MOZJPEG_VERSION \
     && autoreconf -fiv \
     && ./configure --prefix=/usr && make && make install \
     && cd .. \
     && rm -fr mozjpeg-$MOZJPEG_VERSION \
+    && rm -f v$MOZJPEG_VERSION.tar.gz \
     # Uninstall build dependencies
     && apk del build-dependencies
 
