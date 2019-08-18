@@ -1,5 +1,5 @@
 # A preinstalled pelican with image optimizer installed
-FROM alpine:3.7
+FROM alpine:3.10
 
 ARG VCS_REF
 ARG BUILD_DATE
@@ -34,20 +34,20 @@ RUN apk --update --no-cache add \
     && rm -r /usr/lib/python*/ensurepip
 
 # Version change should trigger a rebuild
-ENV MOZJPEG_VERSION 3.2
+ENV MOZJPEG_VERSION 3.3.1
 
 # # Install build dependencies as virtual, build MozJpeg and remove them
 RUN apk --update --no-cache add --virtual build-dependencies \
     # Common build tools
-    autoconf automake build-base libtool nasm \
+    autoconf automake build-base libtool nasm tar \
     # Install MozJPEG from sources
-    && curl -L -O https://github.com/mozilla/mozjpeg/releases/download/v$MOZJPEG_VERSION/mozjpeg-$MOZJPEG_VERSION-release-source.tar.gz \
-    && tar zxf mozjpeg-$MOZJPEG_VERSION-release-source.tar.gz \
-    && cd mozjpeg \
+    && curl -L -O https://github.com/mozilla/mozjpeg/archive/v$MOZJPEG_VERSION.tar.gz \
+    && tar zxf mozjpeg-$MOZJPEG_VERSION.tar.gz \
+    && cd mozjpeg-$MOZJPEG_VERSION \
     && autoreconf -fiv \
     && ./configure --prefix=/usr && make && make install \
     && cd .. \
-    && rm -fr mozjpeg \
+    && rm -fr mozjpeg-$MOZJPEG_VERSION \
     # Uninstall build dependencies
     && apk del build-dependencies
 
