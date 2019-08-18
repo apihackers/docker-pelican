@@ -39,7 +39,7 @@ ENV MOZJPEG_VERSION 3.3.1
 # # Install build dependencies as virtual, build MozJpeg and remove them
 RUN apk --update --no-cache add --virtual build-dependencies \
     # Common build tools
-    autoconf automake build-base libtool nasm tar \
+    autoconf automake build-base pkgconf libtool nasm tar \
     # Install MozJPEG from sources
     && curl -L -O https://github.com/mozilla/mozjpeg/archive/v$MOZJPEG_VERSION.tar.gz \
     && tar zxf v$MOZJPEG_VERSION.tar.gz \
