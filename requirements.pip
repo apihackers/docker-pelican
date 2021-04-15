@@ -1,6 +1,6 @@
 awesome-slugify==1.6.5
 babel==2.8.0
-Cython==0.29.16
+Cython==0.29.23
 feedgenerator==1.9.1
 feedparser==5.2.1
 invoke==1.4.1
