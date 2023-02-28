@@ -1,5 +1,5 @@
 awesome-slugify==1.6.5
-babel==2.9.1
+babel==2.12.1
 Cython==0.29.24
 feedgenerator==2.0.0
 feedparser==6.0.8
