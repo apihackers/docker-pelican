@@ -6,7 +6,7 @@ feedparser==6.0.8
 invoke==1.6.0
 Markdown==3.3.4
 pdfkit==0.6.1
-pelican==4.7.0
+pelican==4.9.1
 pygments==2.10.0
 pyyaml==5.4.1
 typogrify==2.0.7
