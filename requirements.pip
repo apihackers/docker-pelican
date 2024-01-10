@@ -4,7 +4,7 @@ Cython==0.29.24
 feedgenerator==2.0.0
 feedparser==6.0.8
 invoke==1.6.0
-Markdown==3.3.4
+Markdown==3.5.2
 pdfkit==0.6.1
 pelican==4.7.0
 pygments==2.10.0
